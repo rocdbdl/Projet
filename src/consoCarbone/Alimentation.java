@@ -17,16 +17,16 @@ public class Alimentation extends ConsoCarbone{
 	
 	
     /**
-     * Constructeur
-	 * Cree une instance de la classe Alimentation sans donner de valeurs aux attributs
+     * Constructeur qui crée une instance de la classe Alimentation sans donner de valeurs aux attributs
 	 */
 	public Alimentation(){
 		super();
 	}
 	
 	/**
-	 * Constructeur
-	 * Cree une instance de la classe Alimentation en donnant les valeurs des attributs
+	 * Constructeur qui crée une instance de la classe Alimentation en donnant les valeurs des attributs
+	 * @param txBoeuf (double)
+	 * @param txVege (double)
 	 */
 	public Alimentation(double txBoeuf, double txVege){
 		super();
@@ -39,7 +39,7 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * getter pour le taux de repas à base de boeuf
-	 * @return le double txboeuf
+	 * @return txboeuf (double)
 	 */
 	public double gettxBoeuf() {
 		return txBoeuf;
@@ -48,7 +48,7 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * setter pour le taux de repas à base de boeuf
-	 * @param x un double 
+	 * @param x (double) 
 	 */
 	public void settxBoeuf(double x) {
 		if (x>=0 && x<=1) this.txBoeuf = x;
@@ -58,7 +58,7 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * getter pour le taux de repas vegetariens
-	 * @return le double txVege
+	 * @return txVege (double)
 	 */
 	public double gettxVege() {
 		return txVege;
@@ -66,7 +66,7 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * setter pour le taux de repas vegetariens
-	 * @param y un double 
+	 * @param y (double) 
 	 */
 	public void settxVege(double y) {
 		if (y>=0 && y<=1) this.txVege = y;
@@ -74,8 +74,16 @@ public class Alimentation extends ConsoCarbone{
 	}
 	
 	/**
+	 * setter pour l'impact si jamais les valeurs de txBoeuf et txVege venaient à changer
+	 */
+	public void setimpact() {
+		setimpact(cst1*txBoeuf + cst2*(1-txVege-txBoeuf) + cst3*txVege);
+	}
+	
+	/**
 	 * setter pour le taux de repas vegetariens et le taux de repas à base de boeuf
-	 * @param txBoeuf un double, txVege un double
+	 * @param txBoeuf (double)
+	 * @param txVege (double)
 	 */
 	public void setConsoAlim(double txBoeuf, double txVege) {
 		if(txBoeuf+txVege > 1) {System.out.println("Les valeurs rentrée ne sont pas conformes. Leur somme doit inférieur à 1 !");}
@@ -93,20 +101,10 @@ public class Alimentation extends ConsoCarbone{
 		}	
 	}
 	
-	
-	/**
-	 * setter pour l'impact si jamais les valeurs de txBoeuf et txVege venaient à changer
-	 */
-	public void setimpact() {
-		//this.impact = cst1*txBoeuf + cst2*(1-txVege-txBoeuf) + cst3*txVege;
-		setimpact(cst1*txBoeuf + cst2*(1-txVege-txBoeuf) + cst3*txVege);
-	}
-	
-	
 	/**
 	 * Afficheur de la consommation moyenne d'un français en terme d'alimentation
-	 * @Override
 	 */
+	@Override
 	public void CarbFRmoy() {
 		System.out.println("En moyenne, un/une français.e consomme, avec son alimentation, "
 				+ "1144 kg/ an avec les viandes et poissons, 408 kg/an avec les produits laitiers et les oeufs,"
@@ -115,15 +113,17 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * retourne la description détaillée de l'instance de Alimentation
-	 * @return chaine de caractère 
-	 * @Override
+	 * @return (chaine de caractère) 
 	 */
+	@Override
 	public String toString(){
 		return "id Alimentation : " + super.getidConsoCarb() + "\ntxBoeuf : " + txBoeuf + "\ntxVege : " + txVege + "\nimpact : " + super.getimpact() + " tCO2eq \n\n";
 	}
 	
 	
-	//classe main local pour tester la classe Alimentation
-	public static void main(String [] args) {}
+	/**
+	 * methode main de la classe
+	 * @param args
+	 */	public static void main(String [] args) {}
 	
 }

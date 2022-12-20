@@ -15,8 +15,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone>{
 	private double impact;
 
 	/**
-	 * Constructeur
-	 * Cree une instance de la classe ConsoCarbone
+	 * Constructeur qui crée une instance de la classe ConsoCarbone
 	 */
 	public ConsoCarbone() {
 		id = ++nbConsoCarb;
