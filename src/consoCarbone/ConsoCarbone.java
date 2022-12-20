@@ -2,11 +2,11 @@ package consoCarbone;
 
 /**
  * Un ConsoCarbone est une empreinte carbone
- * @author Ugo Benazra et Roc De Begond Delarouzière
+ * @author Ugo Benazra et Roc De Begon Delarouzière
  * @version 1.0
  */
 
-public class ConsoCarbone implements Comparable<ConsoCarbone>{
+public abstract class ConsoCarbone implements Comparable<ConsoCarbone>{
 	/** nombre d'instance ConsoCarbonne */
 	protected static int nbConsoCarb;
 	/** Numero d'identification de l'instance */
@@ -22,6 +22,7 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>{
 		id = ++nbConsoCarb;
 		impact=0.0;
 	}
+	
 	
 	/**
 	 * getter pour le numero d'identification de ConsoCarbone
@@ -47,13 +48,10 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>{
 		this.impact = impact;
 	}
 	
-	/**
-	 * retourne la description détaillée de l'instance de ConsoCarbone
-	 * @return chaine de caractère 
-	 */
-	public String toString(){
-		return "id ConsoCarbonne : " + getidConsoCarb() + "\nimpact : " + impact + " tCO2eq \n\n";
-	}
+	public abstract String toString();
+	
+	public abstract void CarbFRmoy();
+	
 	
 	/**
 	 * compare deux instances de ConsoCarbone

@@ -11,7 +11,7 @@ public class Main {
 		System.out.println("\n");
 		System.out.print(log2.getimpact());
 		System.out.println("\n");
-		Logement.CarbFRmoyLog();
+		log1.CarbFRmoy();
 		
 		Alimentation ali1 = new Alimentation(0.5, 0.7);
 		Alimentation ali2 = new Alimentation(0.4, 0.3);
@@ -19,8 +19,14 @@ public class Main {
 		System.out.println("\n");
 		System.out.print(ali2.getimpact());
 		System.out.println("\n");
-		Alimentation.CarbFRmoyAli();
+		ali1.CarbFRmoy();
 		
+		System.out.println("\n");
+		System.out.println("\n");
+		System.out.print(ali1.compareTo(ali2));
+		System.out.println("\n");
+		System.out.print(ali2.compareTo(log2));
+		System.out.println("\n");
 		
 		
 	}
