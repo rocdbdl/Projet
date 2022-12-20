@@ -2,7 +2,6 @@ package consoCarbone;
 
 public class ServicesPublics extends ConsoCarbone{
 	private static ServicesPublics singleton = null;
-	private double impact;
 	
 	public static ServicesPublics getInstance() {
 		if (singleton == null) {
@@ -14,13 +13,19 @@ public class ServicesPublics extends ConsoCarbone{
 	//Constructeur de ServicesPublics
 	public ServicesPublics(){
 		super();
-		this.impact = 1.5;
+		setimpact(1.5);
 	}
 	
-	//getter pour impact
+	@Override
+	public String toString(){
+		return "id ServicesPublics : " + super.getidConsoCarb() +  "\nimpact : "+ super.getimpact() + " tCO2eq \n\n";
+	}
 	
-	public double getimpact() {
-		return impact;
+	
+	@Override
+	public void CarbFRmoy() {
+		System.out.println("En moyenne, un/une français.e consomme, 1,5 tonne de CO2 par an dans les services publics");
 	}
 	
 }
+	

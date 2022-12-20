@@ -2,7 +2,7 @@ package consoCarbone;
 
 /**
  * Un Alimentation est un ConsoCarbone qui correspond à une empreinte carbone liée aux habitudes alimentaires
- * @author Ugo Benazra et Roc De Begond Delarouzière
+ * @author Ugo Benazra et Roc De Begon Delarouzière
  * @version 1.0
  */
 
@@ -93,11 +93,6 @@ public class Alimentation extends ConsoCarbone{
 		}	
 	}
 	
-	/*
-	//getter pour impact
-	public double getimpact() {
-		return impact;
-	}*/
 	
 	/**
 	 * setter pour l'impact si jamais les valeurs de txBoeuf et txVege venaient à changer
@@ -110,8 +105,9 @@ public class Alimentation extends ConsoCarbone{
 	
 	/**
 	 * Afficheur de la consommation moyenne d'un français en terme d'alimentation
+	 * @Override
 	 */
-	public static void CarbFRmoyAli() {
+	public void CarbFRmoy() {
 		System.out.println("En moyenne, un/une français.e consomme, avec son alimentation, "
 				+ "1144 kg/ an avec les viandes et poissons, 408 kg/an avec les produits laitiers et les oeufs,"
 				+ "263 avec les autres boissons et enfin 538 avec tout le reste de l'alimentation.");
@@ -120,9 +116,10 @@ public class Alimentation extends ConsoCarbone{
 	/**
 	 * retourne la description détaillée de l'instance de Alimentation
 	 * @return chaine de caractère 
+	 * @Override
 	 */
 	public String toString(){
-		return "id Alimentation : " + super.getidConsoCarb() + "\ntxBoeuf : " + txBoeuf + "\ntxVege : " + txVege + "\nimpact : " + getimpact() + " tCO2eq \n\n";
+		return "id Alimentation : " + super.getidConsoCarb() + "\ntxBoeuf : " + txBoeuf + "\ntxVege : " + txVege + "\nimpact : " + super.getimpact() + " tCO2eq \n\n";
 	}
 	
 	
