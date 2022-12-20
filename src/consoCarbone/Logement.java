@@ -6,6 +6,7 @@ public class Logement extends ConsoCarbone{
 	private CE ce;				// la classe énergétique du logement
 	
 	
+	//deuxieme essaie
 	public Logement(){
 		super();
 	}
